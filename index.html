@@ -721,9 +721,9 @@ function buildData() {
 
   const text = JSON.stringify(data, null, 2);
 
-  if (text.length > 24000) {
+  if (text.length > 240000) {
     throw new Error(
-      "送信データが24,000文字を超えました。" +
+      "送信データが240,000文字を超えました。" +
       "行数または列数を減らしてください。" +
       "この制限内でもモデルのコンテキスト長を超える場合があります。"
     );
@@ -789,7 +789,7 @@ $("analyze").onclick = async () => {
     if (
       !Number.isInteger(maxTokens) ||
       maxTokens < 128 ||
-      maxTokens > 8192
+      maxTokens > 48192
     ) {
       throw new Error("回答トークン数は128～8192で指定してください。");
     }
